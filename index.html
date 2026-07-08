@@ -6,15 +6,23 @@
 <title>Tour Núi Bà Đen – Tòa Thánh Tây Ninh – Chùa Gò Kén | 1 Ngày | V Holiday Tour</title>
 <meta name="description" content="Tour hành hương Núi Bà Đen - Tòa Thánh Tây Ninh - Chùa Gò Kén 1 ngày. Xe đưa đón, cáp treo, buffet, HDV am hiểu tâm linh. Ưu đãi chỉ từ 790.000đ.">
 
-<!-- ==== Facebook Pixel (thay YOUR_PIXEL_ID) ==== -->
-<!--
+<!-- ==== Facebook Pixel ==== -->
 <script>
-!function(f,b,e,v,n,t,s){...}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'YOUR_PIXEL_ID');
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4690462857906524');
 fbq('track', 'PageView');
 </script>
--->
-<!-- ==== Google Tag (thay YOUR_GTAG_ID) ==== -->
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4690462857906524&ev=PageView&noscript=1"
+/></noscript>
+<!-- ==== Google Tag (thay YOUR_GTAG_ID khi có) ==== -->
 <!--
 <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GTAG_ID"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','YOUR_GTAG_ID');</script>
@@ -940,7 +948,7 @@ fbq('track', 'PageView');
   function closeModal(){ document.getElementById('exitModal').classList.remove('show'); }
 
   // ---------- Real form submit: sends data to Google Sheet via Apps Script ----------
-  var SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx7n1yMCDhYI4oKaEguRpGhBT_IfFMXYSmemJ_SY8wncx-6KsW7807GuN1xT-QQxi59/exec';
+  var SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyzHhFZobJb0s0Lt_3zKs0D_zIaq3x92KwHfufkcGuSTryqVif_k2Sj5EEpIwJls_TW/exec';
 
   function fakeSubmit(e, isModal){
     e.preventDefault();
@@ -964,7 +972,8 @@ fbq('track', 'PageView');
 
     alert('Cảm ơn bạn! Tư vấn viên sẽ gọi lại xác nhận trong 5 phút.');
     if(isModal) closeModal();
-    // fbq('track','Lead'); gtag('event','generate_lead');
+    if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+    // gtag('event','generate_lead'); // bật khi có Google Tag ID
     return false;
   }
 </script>
