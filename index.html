@@ -192,7 +192,7 @@ src="https://www.facebook.com/tr?id=4690462857906524&ev=PageView&noscript=1"
   }
   @media(max-width:640px){
     .hero-video{
-      inset:auto;top:0;left:0;right:0;
+      inset:auto;top:46px;left:0;right:0;
       height:40vh;min-height:260px;max-height:400px;
       object-position:center 22%;
     }
@@ -284,6 +284,15 @@ src="https://www.facebook.com/tr?id=4690462857906524&ev=PageView&noscript=1"
   .rating-strip{
     text-align:center;font-size:.88rem;font-weight:600;color:#FFFFFF;
     margin:0 0 4px;text-shadow:0 2px 8px rgba(0,0,0,.5);
+  }
+  @media(max-width:480px){
+    .rating-strip{
+      font-size:.66rem;white-space:nowrap;
+      transform:scaleX(0.88);transform-origin:center;
+    }
+  }
+  @media(max-width:360px){
+    .rating-strip{font-size:.56rem;transform:scaleX(0.82);}
   }
   .rating-strip .stars{color:var(--bronze-light);letter-spacing:1px;}
   .price-panel{
