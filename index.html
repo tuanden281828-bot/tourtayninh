@@ -535,7 +535,7 @@ src="https://www.facebook.com/tr?id=4690462857906524&ev=PageView&noscript=1"
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="hero-photo"></div>
-  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+  <video id="heroVideo" class="hero-video" autoplay muted loop playsinline webkit-playsinline="true" x5-playsinline="true" preload="auto">
     <source src="hero-flycam.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
@@ -884,6 +884,31 @@ src="https://www.facebook.com/tr?id=4690462857906524&ev=PageView&noscript=1"
 </div>
 
 <script>
+  // ---------- Force video autoplay on mobile (fallback for strict browsers) ----------
+  (function(){
+    var v = document.getElementById('heroVideo');
+    if(!v) return;
+    v.muted = true;
+    v.setAttribute('muted', '');
+    var tryPlay = function(){
+      var p = v.play();
+      if(p !== undefined){
+        p.catch(function(){
+          // Autoplay bị chặn — thử lại khi người dùng chạm vào màn hình lần đầu
+          var resumeOnTouch = function(){
+            v.play();
+            document.removeEventListener('touchstart', resumeOnTouch);
+            document.removeEventListener('click', resumeOnTouch);
+          };
+          document.addEventListener('touchstart', resumeOnTouch, {once:true});
+          document.addEventListener('click', resumeOnTouch, {once:true});
+        });
+      }
+    };
+    if(v.readyState >= 2){ tryPlay(); }
+    else { v.addEventListener('loadeddata', tryPlay); }
+  })();
+
   // ---------- Countdown timer (48h from page load) ----------
   (function(){
     var end = Date.now() + 48*60*60*1000;
