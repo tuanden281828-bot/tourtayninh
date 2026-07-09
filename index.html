@@ -307,15 +307,25 @@ src="https://www.facebook.com/tr?id=4690462857906524&ev=PageView&noscript=1"
   .countdown small{font-size:.58rem;letter-spacing:.03em;color:#FFD9D0;}
 
   @media(max-width:480px){
-    .price-box{padding:16px 14px;max-width:100%;}
-    .price-panel{flex-direction:column;text-align:center;gap:12px;}
-    .price-panel-left{text-align:center;}
-    .price-box .new{font-size:1.8rem;}
-    .countdown{gap:5px;}
-    .countdown div{min-width:38px;padding:6px 6px;}
-    .countdown span{font-size:1.05rem;}
-    .countdown small{font-size:.52rem;}
-    .countdown-label{font-size:.72rem;}
+    .price-box{padding:14px 12px;max-width:100%;}
+    .price-panel{flex-direction:row;justify-content:space-between;align-items:center;gap:8px;flex-wrap:nowrap;}
+    .price-panel-left{text-align:left;}
+    .price-box .old{font-size:.68rem;}
+    .price-box .new{font-size:1.45rem;}
+    .price-box .new small{font-size:.62rem;}
+    .countdown{gap:4px;}
+    .countdown div{min-width:30px;padding:5px 4px;}
+    .countdown span{font-size:.92rem;}
+    .countdown small{font-size:.46rem;}
+    .countdown-label{font-size:.6rem;margin-bottom:4px;}
+  }
+  @media(max-width:360px){
+    .price-box{padding:12px 10px;}
+    .price-panel{gap:6px;}
+    .price-box .new{font-size:1.25rem;}
+    .countdown div{min-width:26px;padding:4px 3px;}
+    .countdown span{font-size:.8rem;}
+    .countdown-label{font-size:.54rem;}
   }
 
   .hero-form{
